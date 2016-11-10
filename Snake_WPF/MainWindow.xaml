@@ -3,12 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:SnakeWPF" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SnakeWPF.MainWindow"
         Title="Snake" KeyDown="Window_KeyDown" Deactivated="SnakeWindow_Deactivated" Icon="snake_icon.ico" Closed="SnakeWindow_Closed" KeyUp="Window_KeyUp" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
-    <Grid x:Name="grid_window">
+    <Grid x:Name="grid_window" Background="#FFE5E5E5">
         <Grid x:Name="grid_game" Background="#FFE5E5E5">
             <Rectangle x:Name="rec_field" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="759" StrokeThickness="1" Margin="4,4,4,4" Stroke="Black"/>
             <Label x:Name="lb_pause" Content="Spiel pausiert, &#xA;drücke Leertaste um fortzufahren" HorizontalAlignment="Left" Margin="208,213,0,0" VerticalAlignment="Top" Height="69" Width="368" Foreground="White" FontSize="24" Visibility="Hidden"/>
-            <local:PlayerStats x:Name="ps_game_1" HorizontalAlignment="Left" Margin="767,4,4,0" VerticalAlignment="Top" BlockColor="orange" ChangeAllowed="False"/>
-            <local:PlayerStats x:Name="ps_game_2" HorizontalAlignment="Left" Margin="767,204,4,0" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkRed" X="17" Y="10" ChangeAllowed="False" Direction="Right"/>
+            <local:PlayerStats x:Name="ps_game_1" HorizontalAlignment="Left" Margin="767,4,4,0" VerticalAlignment="Top" Header="Spieler1" BlockColor="DarkOrange" ChangeAllowed="False" X="3" Y="3" Direction="Right"/>
+            <local:PlayerStats x:Name="ps_game_2" HorizontalAlignment="Left" Margin="767,204,4,0" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkRed" X="29" Y="17" ChangeAllowed="False" Direction="Left"/>
             <Label x:Name="lb_count" Content="" HorizontalAlignment="Left" Margin="372,223,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
         </Grid>
         <Grid x:Name="grid_gameover" HorizontalAlignment="Left" Width="759" Margin="4,4,0,0" Height="483" VerticalAlignment="Top">
@@ -18,11 +18,11 @@
             <Label Content="Spiel Beendet!" Margin="320,172,0,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="138"/>
             <Button x:Name="bt_exit" Content="Verlassen" Margin="350,214,0,0" VerticalAlignment="Top" Click="bt_exit_Click" Height="25" FontSize="15" HorizontalAlignment="Left" Width="76"/>
         </Grid>
-        <Grid x:Name="grid_start" Background="#FFE5E5E5">
+        <Grid x:Name="grid_start" Background="#FFE5E5E5" Width="Auto" Margin="8,0,0,8">
             <local:PlayerStats x:Name="ps_single" Margin="209,128,0,0" BlockColor="DarkOrange" HorizontalAlignment="Left" VerticalAlignment="Top" ChangeAllowed="True" X="3" Y="3" Direction="Right"/>
             <local:PlayerStats x:Name="ps_multi" Margin="344,128,0,0" Header="Spieler 2" BlockColor="DarkRed" X="29" Y="17" VerticalAlignment="Top" HorizontalAlignment="Left" ChangeAllowed="True"/>
-            <Label x:Name="lb_info" Content="Version 2.0.4, © Manuel Stroh 2013 - 2016" Margin="0,0,10,10" HorizontalAlignment="Right" Width="Auto" Height="26" VerticalAlignment="Bottom"/>
-            <Grid x:Name="grid_control" Background="LightGray" Margin="700,128,66,168">
+            <Label x:Name="lb_info" Content="Version 2.x, © Manuel Stroh 2013 - 2016" Margin="0,0,10,10" HorizontalAlignment="Right" Width="Auto" Height="26" VerticalAlignment="Bottom"/>
+            <Grid x:Name="grid_control" Background="LightGray" Margin="700,128,-76,165" HorizontalAlignment="Left" Width="135">
                 <Label Content="Steuerung" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
                 <Label x:Name="lb_player1" Content="Spieler 1:" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="lb_player2" Content="Spieler 2:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top"/>
@@ -33,20 +33,20 @@
                 <Label Content="Leertaste" Margin="0,79,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
                 <Label Content="Escape" Margin="0,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
             </Grid>
-            <Grid x:Name="grid_online" Background="LightGray" Margin="479,128,206,168">
+            <Grid x:Name="grid_online" Background="LightGray" Margin="479,128,0,165" HorizontalAlignment="Left" Width="216">
                 <Label Content="Online" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
                 <Label x:Name="lb_status" Content="Nicht verbunden" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top"/>
                 <Button x:Name="bt_server" Content="Server" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Width="90" Click="bt_server_Click"/>
                 <Button x:Name="bt_connect" Content="Verbinden" HorizontalAlignment="Left" Margin="111,71,0,0" VerticalAlignment="Top" Width="90" Click="bt_connect_Click"/>
                 <Label x:Name="lb_connected" Content="Verbunden!" HorizontalAlignment="Left" Margin="126,155,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="tb_ip" Text="rumkuhgel.ddns.net" HorizontalAlignment="Left" Height="22" Margin="82,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox x:Name="tb_ip" HorizontalAlignment="Left" Height="22" Margin="82,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Label Content="IP Adresse:" HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top"/>
                 <Label Content="Verbindungsstatus:" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top"/>
                 <RadioButton x:Name="rb_server" Content="Server" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" GroupName="rb_online" IsChecked="True" Checked="rb_server_Checked"/>
                 <RadioButton x:Name="rb_client" Content="Client" HorizontalAlignment="Left" Margin="100,32,0,0" VerticalAlignment="Top" GroupName="rb_online" Checked="rb_client_Checked"/>
                 <Button x:Name="bt_end" Content="Beenden" HorizontalAlignment="Left" Margin="126,132,0,0" VerticalAlignment="Top" Width="75" Click="bt_end_Click"/>
             </Grid>
-            <Grid x:Name="grid_options" Background="LightGray" Margin="64,128,697,168">
+            <Grid x:Name="grid_options" Background="LightGray" Margin="64,128,0,165" HorizontalAlignment="Left" Width="140">
                 <Label Content="Optionen" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
                 <Label Content="Tempo:" Margin="0,139,0,0" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top"/>
                 <CheckBox x:Name="cb_wall" Content="Mauer" Margin="5,119,5,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
@@ -73,9 +73,9 @@
                     <SolidColorBrush Color="Maroon" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle HorizontalAlignment="Left" Height="25" Margin="242,370,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" ToolTip="Black">
+            <Rectangle HorizontalAlignment="Left" Height="25" Margin="242,370,0,0" Stroke="DimGray" VerticalAlignment="Top" Width="25" ToolTip="Black">
                 <Rectangle.Fill>
-                    <SolidColorBrush Color="Black" Opacity="0.9"/>
+                    <SolidColorBrush Color="DimGray" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
             <Rectangle HorizontalAlignment="Left" Height="25" Margin="272,370,0,0" Stroke="Red" VerticalAlignment="Top" Width="25" ToolTip="Red">
@@ -133,9 +133,9 @@
                     <SolidColorBrush Color="Cyan" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle Height="25" Margin="632,370,0,0" Stroke="Gray" VerticalAlignment="Top" HorizontalAlignment="Left" Width="25" ToolTip="Gray">
+            <Rectangle Height="25" Margin="632,370,0,0" Stroke="DarkGray" VerticalAlignment="Top" HorizontalAlignment="Left" Width="25" ToolTip="Gray">
                 <Rectangle.Fill>
-                    <SolidColorBrush Color="Gray" Opacity="0.9"/>
+                    <SolidColorBrush Color="DarkGray" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
             <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="113" Margin="244,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="383" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>

@@ -4,22 +4,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SnakeWPF" x:Class="SnakeWPF.PlayerStats" 
-             mc:Ignorable="d" Height="195" Width="130" MinWidth="130" MinHeight="195" MaxWidth="130" MaxHeight="195">
+             mc:Ignorable="d" Height="190" Width="130" MinWidth="130" MinHeight="190" MaxWidth="130" MaxHeight="195">
     <Grid Background="LightGray">
         <Label x:Name="lb_header" Content="Spieler 1" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
-        <Label Content="Punkte:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,27,0,0"/>
-        <Label Content="Länge:" HorizontalAlignment="Left" Margin="0,79,0,0" VerticalAlignment="Top"/>
-        <Label Content="Richtung:" HorizontalAlignment="Left" Margin="0,105,0,0" VerticalAlignment="Top"/>
-        <Label Content="Koordinaten:" HorizontalAlignment="Left" Margin="0,131,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lb_points" Content="0" Margin="0,27,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
-        <Label x:Name="lb_length" Content="5" Margin="0,79,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
-        <Label x:Name="lb_direction" Content="Links" Margin="0,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
-        <Label x:Name="lb_x" Content="15" Margin="0,131,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
-        <Label x:Name="lb_y" Content="10" Margin="0,131,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
-        <Label Content="Futter:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lb_food" Content="0" Margin="0,53,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
-        <Label Content="Farbe:" HorizontalAlignment="Left" Margin="0,157,0,0" VerticalAlignment="Top"/>
-        <Rectangle x:Name="rec1" HorizontalAlignment="Left" Height="25" Margin="93,158,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="rec1_MouseLeftButtonDown" ToolTip="Hier klicken um die Farbe zu ändern">
+        <Label Content="Punkte:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
+        <Label Content="Länge:" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top"/>
+        <Label Content="Richtung:" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top"/>
+        <Label Content="Koordinaten:" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lb_points" Content="0" Margin="0,26,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
+        <Label x:Name="lb_length" Content="5" Margin="0,78,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
+        <Label x:Name="lb_direction" Content="Links" Margin="0,104,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
+        <Label x:Name="lb_x" Content="15" Margin="0,130,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
+        <Label x:Name="lb_y" Content="10" Margin="0,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
+        <Label Content="Futter:" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lb_food" Content="0" Margin="0,52,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
+        <Label Content="Farbe:" HorizontalAlignment="Left" Margin="0,156,0,0" VerticalAlignment="Top"/>
+        <Rectangle x:Name="rec1" HorizontalAlignment="Left" Height="25" Margin="95,155,0,0" Stroke="Black" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="rec1_MouseLeftButtonDown" ToolTip="Hier klicken um die Farbe zu ändern">
             <Rectangle.Fill>
                 <SolidColorBrush Color="Black" Opacity="0.9"/>
             </Rectangle.Fill>

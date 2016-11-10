@@ -34,6 +34,8 @@ namespace SnakeWPF
         const int fieldSizeX = 33;
         const int fieldSizeY = 21;
         const int maxFood = 2;
+        Brush backgroundColor = Brushes.DimGray;
+        Brush wallColor = Brushes.DarkGray;
         int speed = 200;
         long count = 0;
 
@@ -67,7 +69,7 @@ namespace SnakeWPF
                     block[i, j].Height = 23;
                     block[i, j].Width = 23;
                     block[i, j].StrokeThickness = 1;
-                    ChangeColor(i, j, Brushes.Black);
+                    ChangeColor(i, j, backgroundColor);
                     block[i, j].Margin = new Thickness((block[i, j].Width * i) + rec_field.Margin.Left, (block[i, j].Height * j) + rec_field.Margin.Top, 0, 0);
                     //rec[i,j].ToolTip = i + "|" + j;
                     grid_game.Children.Add(block[i, j]);
@@ -167,7 +169,15 @@ namespace SnakeWPF
         void ChangeColor(int x, int y, Brush color)
         {
             Color myColor = ((SolidColorBrush)color).Color;
-            myColor.A = (byte)(255 * 0.9); // 255 * 0.9 is approx. 230
+            //myColor.A = (byte)(255 * 0.9); // 255 * 0.9 is approx. 230
+            block[x, y].Fill = new SolidColorBrush(myColor);
+            block[x, y].Stroke = color;
+        }
+
+        void ChangeColor(int x, int y, Brush color, double opacity)
+        {
+            Color myColor = ((SolidColorBrush)color).Color;
+            myColor.A = (byte)(255 * opacity); // 255 * 0.9 is approx. 230
             block[x, y].Fill = new SolidColorBrush(myColor);
             block[x, y].Stroke = color;
         }
@@ -287,11 +297,11 @@ namespace SnakeWPF
             Random rand = new Random();
             if (block[x, y].Stroke == playerstats[0].BlockColor ||
                 block[x, y].Stroke == playerstats[1].BlockColor ||
-                block[x, y].Stroke == Brushes.Gray)
+                block[x, y].Stroke == wallColor)
             {
                 return false;
             }
-            else if (block[x, y].Stroke != Brushes.Black)
+            else if (block[x, y].Stroke != backgroundColor)
             {
                 //snake[snake_nr].Length += 20;
                 snake[snakeNr].ChangedLength += 2;
@@ -301,7 +311,7 @@ namespace SnakeWPF
                     AddNewFoodBlock(1);
                 return true;
             }
-            else return true;   //if color is black
+            else return true;   //if color is background
         }
 
         public void MoveSnake(int newX, int newY, int snakeNr)
@@ -318,7 +328,7 @@ namespace SnakeWPF
                     snake[snakeNr].CoordsX[i] = snake[snakeNr].CoordsX[i + 1];
                     snake[snakeNr].CoordsY[i] = snake[snakeNr].CoordsY[i + 1];
                 }
-                ChangeColor(snake[snakeNr].CoordsX[0], snake[snakeNr].CoordsY[0], Brushes.Black);
+                ChangeColor(snake[snakeNr].CoordsX[0], snake[snakeNr].CoordsY[0], backgroundColor);
             }
             if (snake[snakeNr].ChangedLength > 0)
             {
@@ -336,7 +346,7 @@ namespace SnakeWPF
             {
                 int randomX = rand.Next(0, fieldSizeX - 1);
                 int randomY = rand.Next(0, fieldSizeY - 1);
-                if ((block[randomX, randomY].Stroke == Brushes.Black))
+                if ((block[randomX, randomY].Stroke == backgroundColor))
                 {
                     int randomColor = rand.Next(brushes.Length);
                     Brush color = brushes[randomColor];
@@ -449,7 +459,7 @@ namespace SnakeWPF
         {
             for (int i = 0; i < fieldSizeX; i++)
                 for (int j = 0; j < fieldSizeY; j++)
-                    ChangeColor(i, j, Brushes.Black);
+                    ChangeColor(i, j, backgroundColor);
         }
 
         void NewSnake(int x, int y, Directions direction, int snakeNr)
@@ -457,7 +467,8 @@ namespace SnakeWPF
             snake[snakeNr].HeadX = x;
             snake[snakeNr].HeadY = y;
 
-            snake[snakeNr].Length = 5;
+            snake[snakeNr].Length = 0;
+            snake[snakeNr].ChangedLength = 5;
             snake[snakeNr].Direction = direction;
             snake[snakeNr].Points = 0;
             snake[snakeNr].Food = 0;
@@ -470,13 +481,13 @@ namespace SnakeWPF
         void Wall()
         {
             for (int i = 0; i < fieldSizeX; i++)
-                ChangeColor(i, 0, Brushes.Gray);
+                ChangeColor(i, 0, wallColor);
             for (int i = 0; i < fieldSizeY; i++)
-                ChangeColor(0, i, Brushes.Gray);
+                ChangeColor(0, i, wallColor);
             for (int i = 0; i < fieldSizeX; i++)
-                ChangeColor(i, fieldSizeY - 1, Brushes.Gray);
+                ChangeColor(i, fieldSizeY - 1, wallColor);
             for (int i = 0; i < fieldSizeY; i++)
-                ChangeColor(fieldSizeX - 1, i, Brushes.Gray);
+                ChangeColor(fieldSizeX - 1, i, wallColor);
         }
 
         void Level(int level)
@@ -499,7 +510,7 @@ namespace SnakeWPF
                     ////direction = "down";
                     //snake.direction = "down";
                     for (int i = 9; i < 24; i++)
-                        ChangeColor(i, 10, Brushes.Gray);
+                        ChangeColor(i, 10, wallColor);
                     break;
                 case 2:
                     ////x = 0;
@@ -509,7 +520,7 @@ namespace SnakeWPF
                     ////direction = "right";
                     //snake.direction = "right";
                     for (int i = 5; i < 16; i++)
-                        ChangeColor(16, i, Brushes.Gray);
+                        ChangeColor(16, i, wallColor);
                     break;
                 case 3:
                     ////x = 0;
@@ -519,9 +530,9 @@ namespace SnakeWPF
                     ////direction = "right";
                     //snake.direction = "right";
                     for (int i = 5; i < 16; i++)
-                        ChangeColor(16, i, Brushes.Gray);
+                        ChangeColor(16, i, wallColor);
                     for (int i = 9; i < 24; i++)
-                        ChangeColor(i, 10, Brushes.Gray);
+                        ChangeColor(i, 10, wallColor);
                     break;
                 case 4:
                     ////x = 16;
@@ -530,29 +541,29 @@ namespace SnakeWPF
                     //snake.Y = 10;
                     ////direction = "left";
                     //snake.direction = "left";
-                    ChangeColor(9, 5, Brushes.Gray);
-                    ChangeColor(10, 5, Brushes.Gray);
-                    ChangeColor(11, 5, Brushes.Gray);
-                    ChangeColor(9, 6, Brushes.Gray);
-                    ChangeColor(9, 7, Brushes.Gray);
+                    ChangeColor(9, 5, wallColor);
+                    ChangeColor(10, 5, wallColor);
+                    ChangeColor(11, 5, wallColor);
+                    ChangeColor(9, 6, wallColor);
+                    ChangeColor(9, 7, wallColor);
 
-                    ChangeColor(9, 15, Brushes.Gray);
-                    ChangeColor(10, 15, Brushes.Gray);
-                    ChangeColor(11, 15, Brushes.Gray);
-                    ChangeColor(9, 14, Brushes.Gray);
-                    ChangeColor(9, 13, Brushes.Gray);
+                    ChangeColor(9, 15, wallColor);
+                    ChangeColor(10, 15, wallColor);
+                    ChangeColor(11, 15, wallColor);
+                    ChangeColor(9, 14, wallColor);
+                    ChangeColor(9, 13, wallColor);
 
-                    ChangeColor(23, 5, Brushes.Gray);
-                    ChangeColor(22, 5, Brushes.Gray);
-                    ChangeColor(21, 5, Brushes.Gray);
-                    ChangeColor(23, 6, Brushes.Gray);
-                    ChangeColor(23, 7, Brushes.Gray);
+                    ChangeColor(23, 5, wallColor);
+                    ChangeColor(22, 5, wallColor);
+                    ChangeColor(21, 5, wallColor);
+                    ChangeColor(23, 6, wallColor);
+                    ChangeColor(23, 7, wallColor);
 
-                    ChangeColor(23, 15, Brushes.Gray);
-                    ChangeColor(22, 15, Brushes.Gray);
-                    ChangeColor(21, 15, Brushes.Gray);
-                    ChangeColor(23, 14, Brushes.Gray);
-                    ChangeColor(23, 13, Brushes.Gray);
+                    ChangeColor(23, 15, wallColor);
+                    ChangeColor(22, 15, wallColor);
+                    ChangeColor(21, 15, wallColor);
+                    ChangeColor(23, 14, wallColor);
+                    ChangeColor(23, 13, wallColor);
                     break;
             }
         }
