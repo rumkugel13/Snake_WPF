@@ -748,7 +748,7 @@ namespace SnakeWPF
             players = 1;
             lb_player1.Content = "Spieler 1:";
             lb_player2.Content = "oder:";
-            border_online.IsEnabled = false;
+            grid_online.IsEnabled = false;
             ps_single.IsEnabled = true;
             ps_multi.IsEnabled = false;
             bt_start.IsEnabled = true;
@@ -764,7 +764,7 @@ namespace SnakeWPF
             players = 2;
             lb_player1.Content = "Spieler 1:";
             lb_player2.Content = "Spieler 2:";
-            border_online.IsEnabled = false;
+            grid_online.IsEnabled = false;
             ps_single.IsEnabled = true;
             ps_multi.IsEnabled = true;
             bt_start.IsEnabled = true;
@@ -780,7 +780,7 @@ namespace SnakeWPF
             players = 2;
             lb_player1.Content = "Spieler 1:";
             lb_player2.Content = "oder:";
-            border_online.IsEnabled = true;
+            grid_online.IsEnabled = true;
             ps_single.IsEnabled = true;
             ps_multi.IsEnabled = false;
             rb_server.IsChecked = true;
