@@ -10,7 +10,7 @@
             <local:PlayerStats x:Name="ps_player_1" HorizontalAlignment="Left" Margin="150,498,0,10" VerticalAlignment="Top" Header="Spieler1" BlockColor="DarkOrange" X="3" Y="3" ChangeAllowed="true" Direction="Right"/>
             <local:PlayerStats x:Name="ps_player_2" HorizontalAlignment="Left" Margin="415,498,0,0" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkGreen" X="29" Y="17" ChangeAllowed="true" Direction="Left"/>
             <Label x:Name="lb_count" Content="3" HorizontalAlignment="Left" Margin="518,228,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
-            <Button x:Name="bt_start" Content="Start" Margin="680,498,10,0" VerticalAlignment="Top" Click="bt_start_Click" Height="54" FontSize="24"/>
+            <Button x:Name="bt_start" Content="Start" Margin="680,498,10,0" VerticalAlignment="Top" Click="bt_start_Click" Height="52" FontSize="24"/>
             <Grid x:Name="grid_control" Background="LightGray" Margin="10,185,0,0" HorizontalAlignment="Left" Width="130" Height="136" VerticalAlignment="Top">
                 <Label Content="Steuerung" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
                 <Label x:Name="lb_player1" Content="Spieler 1:" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top"/>

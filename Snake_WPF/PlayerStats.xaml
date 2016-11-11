@@ -4,20 +4,20 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SnakeWPF" x:Class="SnakeWPF.PlayerStats" 
-             mc:Ignorable="d" Height="80" Width="260" MinWidth="130" MinHeight="80" MaxWidth="260" MaxHeight="80">
+             mc:Ignorable="d" Height="78" Width="260">
     <Grid Background="LightGray">
-        <Label x:Name="lb_header" Content="Spieler 1" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray" MouseLeftButtonDown="lb_header_MouseLeftButtonDown" HorizontalAlignment="Left" Width="130"/>
-        <Label Content="Punkte:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,0,0,0"/>
-        <Label Content="Länge:" HorizontalAlignment="Left" Margin="130,53,0,0" VerticalAlignment="Top"/>
-        <Label Content="Richtung:" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top"/>
-        <Label Content="Koordinaten:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lb_points" Content="0" Margin="0,1,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
-        <Label x:Name="lb_length" Content="5" Margin="0,53,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
-        <Label x:Name="lb_direction" Content="Links" Margin="0,27,130,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
-        <Label x:Name="lb_x" Content="15" Margin="0,53,154,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
-        <Label x:Name="lb_y" Content="10" Margin="0,53,130,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
-        <Label Content="Futter:" HorizontalAlignment="Left" Margin="130,27,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lb_food" Content="0" Margin="0,27,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
+        <Label x:Name="lb_header" Content="Spieler 1" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Gray" MouseLeftButtonDown="lb_header_MouseLeftButtonDown" HorizontalAlignment="Left" Width="130"/>
+        <Label Content="Punkte:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="130,0,0,0" Background="DarkGray" Width="50"/>
+        <Label Content="Länge:" HorizontalAlignment="Left" Margin="130,52,0,0" VerticalAlignment="Top" Background="DarkGray" Width="50"/>
+        <Label Content="Richtung:" HorizontalAlignment="Left" Margin="0,26,0,0" VerticalAlignment="Top" Background="DarkGray"/>
+        <Label Content="Koordinaten:" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Background="Gray" Width="82"/>
+        <Label x:Name="lb_points" Content="0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="DarkGray" Width="80"/>
+        <Label x:Name="lb_length" Content="5" Margin="0,52,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="DarkGray" Width="80"/>
+        <Label x:Name="lb_direction" Content="Links" Margin="0,26,130,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft" Background="DarkGray" Width="70"/>
+        <Label x:Name="lb_x" Content="15" Margin="0,52,154,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24" Background="Gray"/>
+        <Label x:Name="lb_y" Content="10" Margin="0,52,130,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24" Background="Gray"/>
+        <Label Content="Futter:" HorizontalAlignment="Left" Margin="130,26,0,0" VerticalAlignment="Top" Background="Gray" Width="50"/>
+        <Label x:Name="lb_food" Content="0" Margin="0,26,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="Gray" Width="80"/>
         <Grid x:Name="grid_color" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="WhiteSmoke" Opacity=".5"/>
