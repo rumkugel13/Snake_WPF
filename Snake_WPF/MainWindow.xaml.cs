@@ -75,13 +75,15 @@ namespace SnakeWPF
                     ChangeColor(i, j, backgroundColor);
                     block[i, j].Margin = new Thickness((block[i, j].Width * i) + rec_field.Margin.Left, (block[i, j].Height * j) + rec_field.Margin.Top, 0, 0);
                     //rec[i,j].ToolTip = i + "|" + j;
-                    grid_game.Children.Add(block[i, j]);
+                    grid_window.Children.Add(block[i, j]);
                 }
             }
-            grid_game.Children.Remove(lb_pause);
-            grid_game.Children.Remove(lb_count);
-            grid_game.Children.Add(lb_pause);
-            grid_game.Children.Add(lb_count);
+            grid_window.Children.Remove(lb_pause);
+            grid_window.Children.Remove(lb_count);
+            grid_window.Children.Remove(grid_gameover);
+            grid_window.Children.Add(lb_pause);
+            grid_window.Children.Add(lb_count);
+            grid_window.Children.Add(grid_gameover);
         }
 
         void Window_KeyDown(object sender, KeyEventArgs e)
