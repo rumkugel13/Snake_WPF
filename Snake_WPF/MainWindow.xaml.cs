@@ -826,17 +826,9 @@ namespace SnakeWPF
  * WIP - redesign:
  * ? change back/foreground colors
  * ? more block colors
- * ~ grid.visibility or pages or uc
  * ? animations
- * 
- * Redesign V2 (Version 3.0 -> as new copy):
- * ? menu on left side (sp, mp etc)
- * + new homepage (for changing settings in each menu)
- * ? rework playerstats (show only useful data (color, points, length))
- * + remove borders (chess pattern?)
- * + add background colors
- * + other color for head (opacity with dark background?)
- * + move playerstats to right side, only use those
+ * ? remove borders (chess pattern?)
+ * ? other color for head (opacity with dark background?)
  * ? change playerstats, move properties to snake struct? change properties to set only?
  * ? dynamic window size
  * ? dynamic field/size (field: change rect. size, fieldsize: change fieldsize)
