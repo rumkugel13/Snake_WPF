@@ -379,7 +379,9 @@ namespace SnakeWPF
             grid_gameover.Visibility = Visibility.Visible;
             grid_options.IsEnabled = true;
             if(multiPC)
-            grid_online.IsEnabled = true;
+                grid_online.IsEnabled = true;
+            if(!multiPC || (multiPC && asServer))
+                bt_start.IsEnabled = true;
             if (multiPC && asServer && server != null && send)
             {
                 server.SendMessage(new byte[] { 1, 2, 0, 0 });
@@ -440,6 +442,7 @@ namespace SnakeWPF
             grid_gameover.Visibility = Visibility.Hidden;
             grid_options.IsEnabled = false;
             grid_online.IsEnabled = false;
+            bt_start.IsEnabled = false;
 
             await Countdown(3);
 

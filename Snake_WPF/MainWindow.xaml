@@ -5,12 +5,13 @@
         Title="Snake" KeyDown="Window_KeyDown" Deactivated="SnakeWindow_Deactivated" Icon="snake_icon.ico" Closed="SnakeWindow_Closed" KeyUp="Window_KeyUp" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid x:Name="grid_window" Background="#FFE5E5E5">
         <Grid x:Name="grid_game" Background="#FFE5E5E5">
-            <Rectangle x:Name="rec_field" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="758" StrokeThickness="1" Margin="150,10,10,0" Stroke="Black"/>
+            <Rectangle x:Name="rec_field" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="759" StrokeThickness="1" Margin="150,10,10,0" Stroke="Black"/>
             <Label x:Name="lb_pause" Content="Spiel pausiert, &#xA;drücke Leertaste um fortzufahren" HorizontalAlignment="Left" Margin="208,213,0,0" VerticalAlignment="Top" Height="69" Width="368" Foreground="White" FontSize="24" Visibility="Hidden"/>
             <local:PlayerStats x:Name="ps_player_1" HorizontalAlignment="Left" Margin="150,498,0,10" VerticalAlignment="Top" Header="Spieler1" BlockColor="DarkOrange" X="3" Y="3" ChangeAllowed="true" Direction="Right"/>
             <local:PlayerStats x:Name="ps_player_2" HorizontalAlignment="Left" Margin="415,498,0,0" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkGreen" X="29" Y="17" ChangeAllowed="true" Direction="Left"/>
             <Label x:Name="lb_count" Content="" HorizontalAlignment="Left" Margin="372,223,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
-            <Grid x:Name="grid_control" Background="LightGray" Margin="10,205,0,0" HorizontalAlignment="Left" Width="130" Height="136" VerticalAlignment="Top">
+            <Button x:Name="bt_start" Content="Start" Margin="680,498,10,0" VerticalAlignment="Top" Click="bt_start_Click" Height="54" FontSize="24"/>
+            <Grid x:Name="grid_control" Background="LightGray" Margin="10,185,0,0" HorizontalAlignment="Left" Width="130" Height="136" VerticalAlignment="Top">
                 <Label Content="Steuerung" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
                 <Label x:Name="lb_player1" Content="Spieler 1:" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="lb_player2" Content="Spieler 2:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top"/>
@@ -21,7 +22,7 @@
                 <Label Content="Leertaste" Margin="0,79,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
                 <Label Content="Escape" Margin="0,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
             </Grid>
-            <Grid x:Name="grid_online" Background="LightGray" Margin="10,346,0,0" HorizontalAlignment="Left" Width="130" Height="232" VerticalAlignment="Top">
+            <Grid x:Name="grid_online" Background="LightGray" Margin="10,326,0,0" HorizontalAlignment="Left" Width="130" Height="232" VerticalAlignment="Top">
                 <Label Content="Online" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
                 <Label x:Name="lb_status" Content="Nicht verbunden" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top"/>
                 <Label x:Name="lb_connected" Content="Verbunden!" HorizontalAlignment="Left" Margin="10,197,0,0" VerticalAlignment="Top"/>
@@ -33,7 +34,7 @@
                 <RadioButton x:Name="rb_client" Content="Client" HorizontalAlignment="Left" Margin="70,32,0,0" VerticalAlignment="Top" GroupName="rb_online" Checked="rb_client_Checked"/>
                 <Button x:Name="bt_end" Content="Beenden" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="75" Click="bt_end_Click" IsEnabled="False"/>
             </Grid>
-            <Grid x:Name="grid_options" Background="LightGray" Margin="10,10,0,0" HorizontalAlignment="Left" Width="130" Height="190" VerticalAlignment="Top">
+            <Grid x:Name="grid_options" Background="LightGray" Margin="10,10,0,0" HorizontalAlignment="Left" Width="130" Height="170" VerticalAlignment="Top">
                 <Label Content="Optionen" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="Black" Background="DarkGray"/>
                 <Label Content="Tempo:" Margin="0,139,0,0" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top"/>
                 <CheckBox x:Name="cb_wall" Content="Mauer" Margin="5,119,5,0" VerticalAlignment="Top" HorizontalContentAlignment="Center"/>
@@ -50,7 +51,6 @@
                     <ComboBoxItem Content="75%"/>
                     <ComboBoxItem Content="100%"/>
                 </ComboBox>
-                <Button x:Name="bt_start" Content="Start" Margin="5,165,5,0" VerticalAlignment="Top" Click="bt_start_Click"/>
                 <RadioButton x:Name="rb_single" Content="Einzelspieler" HorizontalAlignment="Left" Margin="5,32,0,0" VerticalAlignment="Top" GroupName="rb_mode" IsChecked="True" Checked="rb_single_Checked"/>
                 <RadioButton x:Name="rb_multi_local" Content="Mehrspieler/Lokal" HorizontalAlignment="Left" Margin="5,52,0,0" VerticalAlignment="Top" GroupName="rb_mode" Checked="rb_multi_local_Checked"/>
                 <RadioButton x:Name="rb_multi_online" Content="Mehrspieler/Online" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top" GroupName="rb_mode" Checked="rb_multi_online_Checked"/>
