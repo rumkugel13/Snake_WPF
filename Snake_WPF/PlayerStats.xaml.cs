@@ -95,7 +95,7 @@ namespace SnakeWPF
 
         private void ColorBlocks_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            lb_header.Background = ((Rectangle)sender).Fill;
+            lb_header.Background = ((Rectangle)sender).Stroke;
             grid_color.Visibility = Visibility.Hidden;
         }
 

@@ -18,7 +18,7 @@
         <Label x:Name="lb_y" Content="10" Margin="0,53,130,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
         <Label Content="Futter:" HorizontalAlignment="Left" Margin="130,27,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lb_food" Content="0" Margin="0,27,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right"/>
-        <Grid x:Name="grid_color" Margin="0,27,0,0" Visibility="Hidden">
+        <Grid x:Name="grid_color" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Color="WhiteSmoke" Opacity=".5"/>
             </Grid.Background>
@@ -32,52 +32,52 @@
                     <SolidColorBrush Color="Red" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_orange" HorizontalAlignment="Left" Height="25" Margin="93,10,0,0" Stroke="DarkOrange" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_orange" HorizontalAlignment="Left" Height="25" Margin="94,10,0,0" Stroke="DarkOrange" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="DarkOrange" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_yellow" HorizontalAlignment="Left" Height="25" Margin="10,40,0,0" Stroke="Yellow" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_yellow" HorizontalAlignment="Left" Height="25" Margin="138,10,0,0" Stroke="Yellow" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="Yellow" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_lime" HorizontalAlignment="Left" Height="25" Margin="52,40,0,0" Stroke="Lime" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_lime" HorizontalAlignment="Left" Height="25" Margin="180,10,0,0" Stroke="Lime" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="Lime" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_dark_green" HorizontalAlignment="Left" Height="25" Margin="93,40,0,0" Stroke="DarkGreen" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_dark_green" HorizontalAlignment="Left" Height="25" Margin="222,10,0,0" Stroke="DarkGreen" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="DarkGreen" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_cyan" HorizontalAlignment="Left" Height="25" Margin="10,70,0,0" Stroke="Cyan" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_cyan" HorizontalAlignment="Left" Height="25" Margin="10,46,0,0" Stroke="Cyan" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="Cyan" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_turquoise" HorizontalAlignment="Left" Height="25" Margin="52,70,0,0" Stroke="Turquoise" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_turquoise" HorizontalAlignment="Left" Height="25" Margin="52,46,0,0" Stroke="Turquoise" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="Turquoise" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_blue" HorizontalAlignment="Left" Height="25" Margin="93,70,0,0" Stroke="Blue" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_blue" HorizontalAlignment="Left" Height="25" Margin="94,46,0,0" Stroke="Blue" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="Blue" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_dark_blue" HorizontalAlignment="Left" Height="25" Margin="10,100,0,0" Stroke="DarkBlue" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_dark_blue" HorizontalAlignment="Left" Height="25" Margin="138,46,0,0" Stroke="DarkBlue" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="DarkBlue" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_purple" HorizontalAlignment="Left" Height="25" Margin="52,100,0,0" Stroke="Purple" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_purple" HorizontalAlignment="Left" Height="25" Margin="180,46,0,0" Stroke="Purple" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="Purple" Opacity="0.9"/>
                 </Rectangle.Fill>
             </Rectangle>
-            <Rectangle x:Name="rec_deep_pink" HorizontalAlignment="Left" Height="25" Margin="93,100,0,0" Stroke="DeepPink" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
+            <Rectangle x:Name="rec_deep_pink" HorizontalAlignment="Left" Height="25" Margin="222,46,0,0" Stroke="DeepPink" VerticalAlignment="Top" Width="25" MouseLeftButtonDown="ColorBlocks_MouseLeftButtonDown">
                 <Rectangle.Fill>
                     <SolidColorBrush Color="DeepPink" Opacity="0.9"/>
                 </Rectangle.Fill>

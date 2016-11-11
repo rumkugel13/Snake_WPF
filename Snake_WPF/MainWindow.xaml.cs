@@ -741,8 +741,8 @@ namespace SnakeWPF
             bt_start.IsEnabled = true;
             cb_wall.IsEnabled = true;
             cb_speed.IsEnabled = true;
-            ps_player_1.ChangeAllowed = false;
-            ps_player_2.ChangeAllowed = false;
+            //ps_player_1.ChangeAllowed = false;
+            //ps_player_2.ChangeAllowed = false;
             debug = false;
         }
 
@@ -757,8 +757,8 @@ namespace SnakeWPF
             bt_start.IsEnabled = true;
             cb_wall.IsEnabled = true;
             cb_speed.IsEnabled = true;
-            ps_player_1.ChangeAllowed = false;
-            ps_player_2.ChangeAllowed = false;
+            //ps_player_1.ChangeAllowed = false;
+            //ps_player_2.ChangeAllowed = false;
             debug = false;
         }
 
@@ -776,8 +776,8 @@ namespace SnakeWPF
             cb_wall.IsEnabled = false;
             cb_speed.SelectedIndex = 0;
             cb_speed.IsEnabled = false;
-            ps_player_1.ChangeAllowed = false;
-            ps_player_2.ChangeAllowed = false;
+            //ps_player_1.ChangeAllowed = false;
+            //ps_player_2.ChangeAllowed = false;
             debug = true;
         }
 

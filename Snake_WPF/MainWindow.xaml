@@ -7,8 +7,8 @@
         <Grid x:Name="grid_game" Background="#FFE5E5E5">
             <Rectangle x:Name="rec_field" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="758" StrokeThickness="1" Margin="150,10,10,0" Stroke="Black"/>
             <Label x:Name="lb_pause" Content="Spiel pausiert, &#xA;drücke Leertaste um fortzufahren" HorizontalAlignment="Left" Margin="208,213,0,0" VerticalAlignment="Top" Height="69" Width="368" Foreground="White" FontSize="24" Visibility="Hidden"/>
-            <local:PlayerStats x:Name="ps_player_1" HorizontalAlignment="Left" Margin="150,498,0,10" VerticalAlignment="Top" Header="Spieler1" BlockColor="DarkOrange" ChangeAllowed="False" X="3" Y="3"/>
-            <local:PlayerStats x:Name="ps_player_2" HorizontalAlignment="Left" Margin="415,498,0,0" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkGreen" X="29" Y="17" ChangeAllowed="False" Direction="Left"/>
+            <local:PlayerStats x:Name="ps_player_1" HorizontalAlignment="Left" Margin="150,498,0,10" VerticalAlignment="Top" Header="Spieler1" BlockColor="DarkOrange" X="3" Y="3" ChangeAllowed="true" Direction="Right"/>
+            <local:PlayerStats x:Name="ps_player_2" HorizontalAlignment="Left" Margin="415,498,0,0" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkGreen" X="29" Y="17" ChangeAllowed="true" Direction="Left"/>
             <Label x:Name="lb_count" Content="" HorizontalAlignment="Left" Margin="372,223,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
             <Grid x:Name="grid_control" Background="LightGray" Margin="10,205,0,0" HorizontalAlignment="Left" Width="130" Height="136" VerticalAlignment="Top">
                 <Label Content="Steuerung" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
