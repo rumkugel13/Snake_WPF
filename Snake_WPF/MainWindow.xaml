@@ -5,12 +5,12 @@
         Title="Snake" KeyDown="Window_KeyDown" Deactivated="SnakeWindow_Deactivated" Icon="snake_icon.ico" Closed="SnakeWindow_Closed" KeyUp="Window_KeyUp" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid x:Name="grid_window" Background="#FFE5E5E5">
         <Rectangle x:Name="rec_field" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="759" StrokeThickness="1" Margin="150,10,10,0" Stroke="Black"/>
-        <Label x:Name="lb_pause" Content="Spiel pausiert, &#xA;drücke Leertaste um fortzufahren" HorizontalAlignment="Left" Margin="366,208,0,0" VerticalAlignment="Top" Height="69" Width="368" Foreground="White" FontSize="24" Visibility="Visible"/>
+        <Label x:Name="lb_pause" Content="Spiel pausiert, &#xA;drücke Leertaste um fortzufahren" HorizontalAlignment="Left" Margin="366,208,0,0" VerticalAlignment="Top" Height="69" Width="368" Foreground="White" FontSize="24"/>
         <local:PlayerStats x:Name="ps_player_1" HorizontalAlignment="Left" Margin="150,498,0,10" VerticalAlignment="Top" Header="Spieler1" BlockColor="DarkOrange" X="3" Y="3" ChangeAllowed="true" Direction="Right"/>
         <local:PlayerStats x:Name="ps_player_2" HorizontalAlignment="Left" Margin="415,498,0,0" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkGreen" X="29" Y="17" ChangeAllowed="true" Direction="Left"/>
         <Label x:Name="lb_count" Content="3" HorizontalAlignment="Left" Margin="518,228,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
         <Button x:Name="bt_start" Content="Start" Margin="680,498,10,0" VerticalAlignment="Top" Click="bt_start_Click" Height="52" FontSize="24"/>
-        <Label x:Name="lb_info" Content="Version 3.0.0 © Manuel Stroh 2013 - 2016" Margin="0,0,10,10" HorizontalAlignment="Right" Width="Auto" Height="26" VerticalAlignment="Bottom"/>
+        <Label x:Name="lb_info" Content="Version 3.0.0 © Manuel Stroh 2013 - 2016" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
         <Grid x:Name="grid_control" Background="LightGray" Margin="10,185,0,0" HorizontalAlignment="Left" Width="130" Height="136" VerticalAlignment="Top">
             <Label Content="Steuerung" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Gray"/>
             <Label x:Name="lb_player1" Content="Spieler 1:" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top"/>
@@ -61,9 +61,9 @@
             </Grid.Background>
             <Label Content="Spiel Beendet!" Margin="320,172,0,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="138"/>
             <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="113" Margin="207,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="383" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
-            <Label x:Name="label" Content="DebugConsole" HorizontalAlignment="Left" Margin="207,28,0,0" VerticalAlignment="Top"/>
+            <Label Content="DebugConsole" HorizontalAlignment="Left" Margin="207,28,0,0" VerticalAlignment="Top"/>
             <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Margin="295,31,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-            <Label x:Name="label1" Content="F1 für Debug Konsole" HorizontalAlignment="Left" Margin="298,244,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Content="F1 für Debug Konsole" HorizontalAlignment="Left" Margin="298,244,0,0" VerticalAlignment="Top" FontSize="18"/>
         </Grid>
     </Grid>
 </Window>
