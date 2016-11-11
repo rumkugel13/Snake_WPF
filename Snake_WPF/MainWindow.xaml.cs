@@ -23,8 +23,8 @@ namespace SnakeWPF
             button.Visibility = Visibility.Hidden;
             label.Visibility = Visibility.Hidden;
 
-            playerstats[0] = ps_game_1;
-            playerstats[1] = ps_game_2;
+            playerstats[0] = ps_player_1;
+            playerstats[1] = ps_player_2;
             CreateField();
         }
 
@@ -33,8 +33,9 @@ namespace SnakeWPF
         Rectangle[,] block;
         const int fieldSizeX = 33;
         const int fieldSizeY = 21;
+        const int blockSize = 23;
         const int maxFood = 2;
-        Brush backgroundColor = Brushes.DimGray;
+        Brush backgroundColor = Brushes.Black;
         Brush wallColor = Brushes.DarkGray;
         int speed = 200;
         long count = 0;
@@ -66,8 +67,8 @@ namespace SnakeWPF
                     block[i, j] = new Rectangle();
                     block[i, j].VerticalAlignment = VerticalAlignment.Top;
                     block[i, j].HorizontalAlignment = HorizontalAlignment.Left;
-                    block[i, j].Height = 23;
-                    block[i, j].Width = 23;
+                    block[i, j].Height = blockSize;
+                    block[i, j].Width = blockSize;
                     block[i, j].StrokeThickness = 1;
                     ChangeColor(i, j, backgroundColor);
                     block[i, j].Margin = new Thickness((block[i, j].Width * i) + rec_field.Margin.Left, (block[i, j].Height * j) + rec_field.Margin.Top, 0, 0);
@@ -164,22 +165,6 @@ namespace SnakeWPF
                 snake[snakeNr].Direction = direction;
                 snake[snakeNr].DirChanged = true;
             }
-        }
-
-        void ChangeColor(int x, int y, Brush color)
-        {
-            Color myColor = ((SolidColorBrush)color).Color;
-            //myColor.A = (byte)(255 * 0.9); // 255 * 0.9 is approx. 230
-            block[x, y].Fill = new SolidColorBrush(myColor);
-            block[x, y].Stroke = color;
-        }
-
-        void ChangeColor(int x, int y, Brush color, double opacity)
-        {
-            Color myColor = ((SolidColorBrush)color).Color;
-            myColor.A = (byte)(255 * opacity); // 255 * 0.9 is approx. 230
-            block[x, y].Fill = new SolidColorBrush(myColor);
-            block[x, y].Stroke = color;
         }
 
         async void GameTickMulti(bool isAllowed)
@@ -361,6 +346,14 @@ namespace SnakeWPF
             }
         }
 
+        void ChangeColor(int x, int y, Brush color)
+        {
+            Color myColor = ((SolidColorBrush)color).Color;
+            myColor.A = (byte)(255 * 0.9); // 255 * 0.9 is approx. 230
+            block[x, y].Fill = new SolidColorBrush(myColor);
+            block[x, y].Stroke = color;
+        }
+
         void SendCoords(int x, int y, int snakeNr)
         {
             server.SendMessage(new byte[] { 3, (byte)x, (byte)y, (byte)snakeNr });
@@ -384,6 +377,9 @@ namespace SnakeWPF
         {
             running = false;
             grid_gameover.Visibility = Visibility.Visible;
+            grid_options.IsEnabled = true;
+            if(multiPC)
+            grid_online.IsEnabled = true;
             if (multiPC && asServer && server != null && send)
             {
                 server.SendMessage(new byte[] { 1, 2, 0, 0 });
@@ -417,14 +413,14 @@ namespace SnakeWPF
             running = true;
 
             NewSnake(3, 3, Directions.Right, 0);
-            playerstats[0].BlockColor = ps_single.BlockColor;
+            //playerstats[0].BlockColor = ps_single.BlockColor;
 
             UpdateStats(0);
 
             if (players == 2)
             {
                 NewSnake(fieldSizeX - 4, fieldSizeY - 4, Directions.Left, 1);
-                playerstats[1].BlockColor = ps_multi.BlockColor;
+                //playerstats[1].BlockColor = ps_multi.BlockColor;
                 playerstats[1].Visibility = Visibility.Visible;
                 UpdateStats(1);
             }
@@ -443,9 +439,11 @@ namespace SnakeWPF
 
             Level(cob_level.SelectedIndex);
 
-            grid_start.Visibility = Visibility.Hidden;
+            //grid_start.Visibility = Visibility.Hidden;
             grid_gameover.Visibility = Visibility.Hidden;
-            grid_game.Visibility = Visibility.Visible;
+            grid_options.IsEnabled = false;
+            grid_online.IsEnabled = false;
+            //grid_game.Visibility = Visibility.Visible;
 
             await Countdown(3);
 
@@ -742,31 +740,19 @@ namespace SnakeWPF
             Environment.Exit(0);
         }
 
-        private void bt_exit_Click(object sender, RoutedEventArgs e)
-        {
-            ExitGame();
-        }
-
-        void ExitGame()
-        {
-            grid_game.Visibility = Visibility.Hidden;
-            grid_gameover.Visibility = Visibility.Hidden;
-            grid_start.Visibility = Visibility.Visible;
-        }
-
         private void rb_single_Checked(object sender, RoutedEventArgs e)
         {
             players = 1;
             lb_player1.Content = "Spieler 1:";
             lb_player2.Content = "oder:";
             grid_online.IsEnabled = false;
-            ps_single.IsEnabled = true;
-            ps_multi.IsEnabled = false;
+            ps_player_1.IsEnabled = true;
+            ps_player_2.IsEnabled = false;
             bt_start.IsEnabled = true;
             cb_wall.IsEnabled = true;
             cb_speed.IsEnabled = true;
-            ps_single.ChangeAllowed = false;
-            ps_multi.ChangeAllowed = false;
+            ps_player_1.ChangeAllowed = false;
+            ps_player_2.ChangeAllowed = false;
             debug = false;
         }
 
@@ -776,13 +762,13 @@ namespace SnakeWPF
             lb_player1.Content = "Spieler 1:";
             lb_player2.Content = "Spieler 2:";
             grid_online.IsEnabled = false;
-            ps_single.IsEnabled = true;
-            ps_multi.IsEnabled = true;
+            ps_player_1.IsEnabled = true;
+            ps_player_2.IsEnabled = true;
             bt_start.IsEnabled = true;
             cb_wall.IsEnabled = true;
             cb_speed.IsEnabled = true;
-            ps_single.ChangeAllowed = false;
-            ps_multi.ChangeAllowed = false;
+            ps_player_1.ChangeAllowed = false;
+            ps_player_2.ChangeAllowed = false;
             debug = false;
         }
 
@@ -792,16 +778,16 @@ namespace SnakeWPF
             lb_player1.Content = "Spieler 1:";
             lb_player2.Content = "oder:";
             grid_online.IsEnabled = true;
-            ps_single.IsEnabled = true;
-            ps_multi.IsEnabled = false;
+            ps_player_1.IsEnabled = true;
+            ps_player_2.IsEnabled = false;
             rb_server.IsChecked = true;
             bt_start.IsEnabled = false;
             cb_wall.IsChecked = false;
             cb_wall.IsEnabled = false;
             cb_speed.SelectedIndex = 0;
             cb_speed.IsEnabled = false;
-            ps_single.ChangeAllowed = false;
-            ps_multi.ChangeAllowed = false;
+            ps_player_1.ChangeAllowed = false;
+            ps_player_2.ChangeAllowed = false;
             debug = true;
         }
 
@@ -820,8 +806,8 @@ namespace SnakeWPF
         {
             bt_server.IsEnabled = true;
             bt_connect.IsEnabled = false;
-            ps_single.IsEnabled = true;
-            ps_multi.IsEnabled = false;
+            ps_player_1.IsEnabled = true;
+            ps_player_2.IsEnabled = false;
             lb_player1.Content = "Spieler 1:";
             asServer = true;
             lb_status.Content = "";
@@ -831,8 +817,8 @@ namespace SnakeWPF
         {
             bt_server.IsEnabled = false;
             bt_connect.IsEnabled = true;
-            ps_single.IsEnabled = false;
-            ps_multi.IsEnabled = true;
+            ps_player_1.IsEnabled = false;
+            ps_player_2.IsEnabled = true;
             lb_player1.Content = "Spieler 2:";
             asServer = false;
             lb_status.Content = "";
