@@ -28,12 +28,10 @@ namespace SnakeWPF
 
         public Brush BlockColor
         {
-            get { //return rec1.Stroke;
-                return lb_header.Background;
-            }
+            get { return lb_header.Background; }
             set {
-                Color myColor = ((SolidColorBrush)value).Color;
-                myColor.A = (byte)(255 * 0.9); // 255 * 0.9 is approx. 230
+                //Color myColor = ((SolidColorBrush)value).Color;
+                //myColor.A = (byte)(255 * 0.9); // 255 * 0.9 is approx. 230
                 //rec1.Fill = new SolidColorBrush(myColor);
                 //rec1.Stroke = value;
                 lb_header.Background = value;
@@ -97,7 +95,6 @@ namespace SnakeWPF
 
         private void ColorBlocks_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //rec1.Stroke = ((Rectangle)sender).Stroke;
             lb_header.Background = ((Rectangle)sender).Fill;
             grid_color.Visibility = Visibility.Hidden;
         }

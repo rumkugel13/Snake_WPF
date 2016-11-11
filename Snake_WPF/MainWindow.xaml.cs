@@ -413,20 +413,18 @@ namespace SnakeWPF
             running = true;
 
             NewSnake(3, 3, Directions.Right, 0);
-            //playerstats[0].BlockColor = ps_single.BlockColor;
 
             UpdateStats(0);
 
             if (players == 2)
             {
                 NewSnake(fieldSizeX - 4, fieldSizeY - 4, Directions.Left, 1);
-                //playerstats[1].BlockColor = ps_multi.BlockColor;
-                playerstats[1].Visibility = Visibility.Visible;
+                //playerstats[1].Visibility = Visibility.Visible;
                 UpdateStats(1);
             }
             else
             {
-                playerstats[1].Visibility = Visibility.Hidden;
+                //playerstats[1].Visibility = Visibility.Hidden;
             }
 
             ResetField();
@@ -438,12 +436,10 @@ namespace SnakeWPF
                 Wall();
 
             Level(cob_level.SelectedIndex);
-
-            //grid_start.Visibility = Visibility.Hidden;
+            
             grid_gameover.Visibility = Visibility.Hidden;
             grid_options.IsEnabled = false;
             grid_online.IsEnabled = false;
-            //grid_game.Visibility = Visibility.Visible;
 
             await Countdown(3);
 
@@ -593,53 +589,47 @@ namespace SnakeWPF
             Prepare();
         }
 
-        private void bt_server_Click(object sender, RoutedEventArgs e)
+        private void bt_online_Click(object sender, RoutedEventArgs e)
         {
-            bt_server.IsEnabled = false;
-            rb_client.IsEnabled = false;
-            rb_server.IsEnabled = false;
-            //bt_connect.IsEnabled = false;
-            server = new Server();
-            server.OnConnectionChange += OnConnectionChange;
-            server.OnDataReceived += OnDataReceived;
-            multiPC = true;
-
-            string HostName = System.Net.Dns.GetHostName();
-            string IpAdresse = "localhost";
-
-            foreach (IPAddress address in Dns.GetHostEntry(HostName).AddressList)
+            if (rb_server.IsChecked == true)
             {
-                if (address.AddressFamily != AddressFamily.InterNetworkV6)
+                server = new Server();
+                server.OnConnectionChange += OnConnectionChange;
+                server.OnDataReceived += OnDataReceived;
+
+                string HostName = System.Net.Dns.GetHostName();
+                string IpAdresse = "localhost";
+
+                foreach (IPAddress address in Dns.GetHostEntry(HostName).AddressList)
                 {
-                    IpAdresse = address.ToString();
-                    break;
+                    if (address.AddressFamily != AddressFamily.InterNetworkV6)
+                    {
+                        IpAdresse = address.ToString();
+                        break;
+                    }
                 }
+
+                Console.WriteLine("Server started(" + 25566 + "|" + HostName + "|" + IpAdresse + ")\n");
+                lb_status.Content = "Server gestartet";
+                tb_ip.Text = IpAdresse;
             }
-
-            Console.WriteLine("Server started(" + 25566 + "|" + HostName + "|" + IpAdresse + ")\n");
-            lb_status.Content = "Server gestartet";
-            //tb_host.Text = HostName;
-            tb_ip.Text = IpAdresse;
-            //tb_port.Text = server.getPort().ToString();
-        }
-
-        private void bt_connect_Click(object sender, RoutedEventArgs e)
-        {
-            //bt_server.IsEnabled = false;
+            else if (rb_client.IsChecked == true)
+            {
+                if (tb_ip.Text == "")
+                {
+                    client = new Client();
+                    tb_ip.Text = "localhost";
+                }
+                else
+                    client = new Client(tb_ip.Text);
+                client.OnConnectionChange += OnConnectionChange;
+                client.OnDataReceived += OnDataReceived;
+            }
             rb_client.IsEnabled = false;
             rb_server.IsEnabled = false;
-            bt_connect.IsEnabled = false;
-            if (tb_ip.Text == "")
-            {
-                client = new Client();
-                tb_ip.Text = "localhost";
-            }
-            else
-                client = new Client(tb_ip.Text);
-            client.OnConnectionChange += OnConnectionChange;
-            client.OnDataReceived += OnDataReceived;
+            bt_online.IsEnabled = false;
+            bt_end.IsEnabled = true;
             multiPC = true;
-            asServer = false;
         }
 
         private void bt_end_Click(object sender, RoutedEventArgs e)
@@ -648,17 +638,17 @@ namespace SnakeWPF
             {
                 if (server != null)
                     server.StopServer();
-                bt_server.IsEnabled = true;
                 tb_ip.Text = "";
             }
             else
             {
                 if (client != null)
                     client.StopClient();
-                bt_connect.IsEnabled = true;
             }
             rb_client.IsEnabled = true;
             rb_server.IsEnabled = true;
+            bt_end.IsEnabled = false;
+            bt_online.IsEnabled = true;
             multiPC = false;
             lb_status.Content = "";
         }
@@ -804,22 +794,20 @@ namespace SnakeWPF
 
         private void rb_server_Checked(object sender, RoutedEventArgs e)
         {
-            bt_server.IsEnabled = true;
-            bt_connect.IsEnabled = false;
             ps_player_1.IsEnabled = true;
             ps_player_2.IsEnabled = false;
             lb_player1.Content = "Spieler 1:";
+            bt_online.Content = "Server";
             asServer = true;
             lb_status.Content = "";
         }
 
         private void rb_client_Checked(object sender, RoutedEventArgs e)
         {
-            bt_server.IsEnabled = false;
-            bt_connect.IsEnabled = true;
             ps_player_1.IsEnabled = false;
             ps_player_2.IsEnabled = true;
             lb_player1.Content = "Spieler 2:";
+            bt_online.Content = "Verbinden";
             asServer = false;
             lb_status.Content = "";
         }

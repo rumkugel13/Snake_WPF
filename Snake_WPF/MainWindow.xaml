@@ -23,16 +23,15 @@
             </Grid>
             <Grid x:Name="grid_online" Background="LightGray" Margin="10,346,0,0" HorizontalAlignment="Left" Width="130" Height="232" VerticalAlignment="Top">
                 <Label Content="Online" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
-                <Label x:Name="lb_status" Content="Nicht verbunden" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="bt_server" Content="Server" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="90" Click="bt_server_Click"/>
-                <Button x:Name="bt_connect" Content="Verbinden" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="90" Click="bt_connect_Click"/>
-                <Label x:Name="lb_connected" Content="Verbunden!" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="tb_ip" Text="rumkuhgel.ddns.net" HorizontalAlignment="Left" Height="22" Margin="5,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <Label Content="IP Adresse:" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top"/>
-                <Label Content="Verbindungsstatus:" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lb_status" Content="Nicht verbunden" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top"/>
+                <Label x:Name="lb_connected" Content="Verbunden!" HorizontalAlignment="Left" Margin="10,197,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_ip" Text="rumkuhgel.ddns.net" HorizontalAlignment="Left" Height="22" Margin="5,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <Label Content="IP Adresse:" HorizontalAlignment="Left" Margin="10,97,0,0" VerticalAlignment="Top"/>
+                <Label Content="Verbindungsstatus:" HorizontalAlignment="Left" Margin="10,171,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="bt_online" Content="Server" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top" Width="75" Click="bt_online_Click"/>
                 <RadioButton x:Name="rb_server" Content="Server" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" GroupName="rb_online" IsChecked="True" Checked="rb_server_Checked"/>
                 <RadioButton x:Name="rb_client" Content="Client" HorizontalAlignment="Left" Margin="70,32,0,0" VerticalAlignment="Top" GroupName="rb_online" Checked="rb_client_Checked"/>
-                <Button x:Name="bt_end" Content="Beenden" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Width="75" Click="bt_end_Click"/>
+                <Button x:Name="bt_end" Content="Beenden" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Width="75" Click="bt_end_Click" IsEnabled="False"/>
             </Grid>
             <Grid x:Name="grid_options" Background="LightGray" Margin="10,10,0,0" HorizontalAlignment="Left" Width="130" Height="190" VerticalAlignment="Top">
                 <Label Content="Optionen" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Foreground="Black" Background="DarkGray"/>
