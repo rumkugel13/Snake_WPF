@@ -18,6 +18,8 @@ namespace SnakeWPF
         {
             InitializeComponent();
             lb_connected.Visibility = Visibility.Hidden;
+            lb_count.Visibility = Visibility.Hidden;
+            lb_pause.Visibility = Visibility.Hidden;
 
             textBox.Visibility = Visibility.Hidden;
             button.Visibility = Visibility.Hidden;
@@ -234,6 +236,7 @@ namespace SnakeWPF
 
         void ShowCountdownNumber(int number)
         {
+            lb_count.Visibility = (number > 0) ? Visibility.Visible : Visibility.Hidden;
             lb_count.Content = (number == 0) ? "" : number.ToString();
             MoveAllPlayers();
         }
