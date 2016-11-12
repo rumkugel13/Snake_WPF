@@ -4,14 +4,12 @@
         xmlns:local="clr-namespace:SnakeWPF" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="SnakeWPF.MainWindow"
         Title="Snake" KeyDown="Window_KeyDown" Deactivated="SnakeWindow_Deactivated" Icon="snake_icon.ico" Closed="SnakeWindow_Closed" KeyUp="Window_KeyUp" ResizeMode="CanMinimize" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
     <Grid x:Name="grid_window" Background="#FFE5E5E5">
-        <Rectangle x:Name="rec_field" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="759" StrokeThickness="1" Margin="150,10,10,0" Stroke="Black"/>
-        <Label x:Name="lb_pause" Content="Spiel pausiert, &#xA;drücke Leertaste um fortzufahren" HorizontalAlignment="Left" Margin="366,208,0,0" VerticalAlignment="Top" Height="69" Width="368" Foreground="White" FontSize="24"/>
-        <local:PlayerStats x:Name="ps_player_1" HorizontalAlignment="Left" Margin="150,498,0,10" VerticalAlignment="Top" Header="Spieler1" BlockColor="DarkOrange" X="3" Y="3" ChangeAllowed="true" Direction="Right"/>
-        <local:PlayerStats x:Name="ps_player_2" HorizontalAlignment="Left" Margin="415,498,0,0" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkGreen" X="29" Y="17" ChangeAllowed="true" Direction="Left"/>
-        <Label x:Name="lb_count" Content="3" HorizontalAlignment="Left" Margin="518,228,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White"/>
-        <Button x:Name="bt_start" Content="Start" Margin="680,498,10,0" VerticalAlignment="Top" Click="bt_start_Click" Height="52" FontSize="24"/>
-        <Label x:Name="lb_info" Content="Version 3.0.0 © Manuel Stroh 2013 - 2016" Margin="0,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-        <Grid x:Name="grid_control" Background="LightGray" Margin="10,155,0,0" HorizontalAlignment="Left" Width="130" Height="136" VerticalAlignment="Top">
+        <Rectangle x:Name="rec_field" HorizontalAlignment="Left" Height="483" VerticalAlignment="Top" Width="667" StrokeThickness="1" Margin="140,5,0,0" Stroke="Black"/>
+        <local:PlayerStats x:Name="ps_player_1" HorizontalAlignment="Left" Margin="140,493,0,5" VerticalAlignment="Top" Header="Spieler1" BlockColor="DarkOrange" X="3" Y="3" ChangeAllowed="true" Direction="Right"/>
+        <local:PlayerStats x:Name="ps_player_2" HorizontalAlignment="Left" Margin="405,493,0,5" VerticalAlignment="Top" Header="Spieler 2" BlockColor="DarkGreen" X="29" Y="17" ChangeAllowed="true" Direction="Left"/>
+        <Label x:Name="lb_count" Content="3" HorizontalAlignment="Left" Margin="462,224,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Panel.ZIndex="1"/>
+        <Button x:Name="bt_start" Content="Start" Margin="670,493,5,0" VerticalAlignment="Top" Click="bt_start_Click" Height="78" FontSize="24"/>
+        <Grid x:Name="grid_control" Background="LightGray" Margin="5,150,0,0" HorizontalAlignment="Left" Width="130" Height="136" VerticalAlignment="Top">
             <Label Content="Steuerung" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Gray"/>
             <Label x:Name="lb_player1" Content="Spieler 1:" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top"/>
             <Label x:Name="lb_player2" Content="Spieler 2:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top"/>
@@ -22,7 +20,7 @@
             <Label Content="Leertaste" Margin="0,79,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
             <Label Content="Escape" Margin="0,105,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="RightToLeft"/>
         </Grid>
-        <Grid x:Name="grid_online" Background="LightGray" Margin="10,296,0,0" HorizontalAlignment="Left" Width="130" Height="232" VerticalAlignment="Top">
+        <Grid x:Name="grid_online" Background="LightGray" Margin="5,291,0,0" HorizontalAlignment="Left" Width="130" Height="232" VerticalAlignment="Top">
             <Label Content="Online" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Gray"/>
             <Label x:Name="lb_status" Content="Nicht verbunden" HorizontalAlignment="Left" Margin="0,145,0,0" VerticalAlignment="Top"/>
             <Label x:Name="lb_connected" Content="Verbunden!" HorizontalAlignment="Left" Margin="0,197,0,0" VerticalAlignment="Top"/>
@@ -34,7 +32,7 @@
             <RadioButton x:Name="rb_client" Content="Client" HorizontalAlignment="Left" Margin="76,31,0,0" VerticalAlignment="Top" GroupName="rb_online" Checked="rb_client_Checked"/>
             <Button x:Name="bt_end" Content="Beenden" HorizontalAlignment="Left" Margin="5,76,0,0" VerticalAlignment="Top" Width="120" Click="bt_end_Click" IsEnabled="False"/>
         </Grid>
-        <Grid x:Name="grid_options" Background="LightGray" Margin="10,10,0,0" HorizontalAlignment="Left" Width="130" Height="140" VerticalAlignment="Top">
+        <Grid x:Name="grid_options" Background="LightGray" Margin="5,5,0,0" HorizontalAlignment="Left" Width="130" Height="140" VerticalAlignment="Top">
             <Label Content="Optionen" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Gray"/>
             <Label Content="Tempo:" Margin="0,107,0,0" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top"/>
             <CheckBox x:Name="cb_wall" Content="Mauer" Margin="6,92,4,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" Checked="cb_wall_Checked" Unchecked="cb_wall_Unchecked"/>
@@ -48,15 +46,17 @@
             <RadioButton x:Name="rb_multi_local" Content="Mehrspieler/Lokal" HorizontalAlignment="Left" Margin="5,52,0,0" VerticalAlignment="Top" GroupName="rb_mode" Checked="rb_multi_local_Checked"/>
             <RadioButton x:Name="rb_multi_online" Content="Mehrspieler/Online" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top" GroupName="rb_mode" Checked="rb_multi_online_Checked"/>
         </Grid>
-        <Grid x:Name="grid_gameover" HorizontalAlignment="Left" Width="759" Margin="150,10,0,0" Height="483" VerticalAlignment="Top">
+        <Grid x:Name="grid_gameover" HorizontalAlignment="Left" Width="667" Margin="140,5,5,0" Height="483" VerticalAlignment="Top" Panel.ZIndex="1">
             <Grid.Background>
                 <SolidColorBrush Opacity="0.75" Color="#FFE5E5E5"/>
             </Grid.Background>
-            <Label Content="Spiel Beendet!" Margin="320,172,0,0" VerticalAlignment="Top" FontSize="20" HorizontalAlignment="Left" Width="138"/>
-            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="113" Margin="207,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="383" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+            <Label x:Name="lb_gameover" Content="Spiel Beendet!" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center" Width="138" Margin="264,199,265,247"/>
+            <TextBox x:Name="textBox" HorizontalAlignment="Center" Height="113" TextWrapping="Wrap" VerticalAlignment="Center" Width="383" VerticalScrollBarVisibility="Auto" IsReadOnly="True" Margin="142,61,142,309"/>
             <Label x:Name="label" Content="DebugConsole" HorizontalAlignment="Left" Margin="207,28,0,0" VerticalAlignment="Top"/>
             <Button x:Name="button" Content="Delete" HorizontalAlignment="Left" Margin="295,31,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-            <Label Content="F1 für Debug Konsole" HorizontalAlignment="Left" Margin="298,244,0,0" VerticalAlignment="Top" FontSize="18"/>
+            <Label Content="F1 für Debug Konsole" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="243,248,243,201"/>
+            <Label x:Name="lb_pause" Content="Spiel pausiert, &#xA;drücke Leertaste um fortzufahren" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="368" Margin="150,184,149,230" FontSize="24"/>
         </Grid>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="5,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="130" TextAlignment="Center"><Run Text="Version 3.0.0"/><LineBreak/><Run Text="© Manuel Stroh"/><LineBreak/><Run Text="2013 - 2016"/></TextBlock>
     </Grid>
 </Window>

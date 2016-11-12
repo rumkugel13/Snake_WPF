@@ -33,7 +33,7 @@ namespace SnakeWPF
         bool running = false;
         bool pause = false;
         Rectangle[,] block;
-        const int fieldSizeX = 33;
+        const int fieldSizeX = 29;
         const int fieldSizeY = 21;
         const int blockSize = 23;
         const int maxFood = 2;
@@ -78,12 +78,6 @@ namespace SnakeWPF
                     grid_window.Children.Add(block[i, j]);
                 }
             }
-            grid_window.Children.Remove(lb_pause);
-            grid_window.Children.Remove(lb_count);
-            grid_window.Children.Remove(grid_gameover);
-            grid_window.Children.Add(lb_pause);
-            grid_window.Children.Add(lb_count);
-            grid_window.Children.Add(grid_gameover);
         }
 
         void Window_KeyDown(object sender, KeyEventArgs e)
@@ -139,8 +133,17 @@ namespace SnakeWPF
                 case Key.Space:
                     if (!multiPC && running)
                     {
-                        lb_pause.Visibility = pause ? Visibility.Hidden : Visibility.Visible;
                         pause = !pause;
+                        if (pause)
+                        {
+                            lb_gameover.Visibility = Visibility.Hidden;
+                            lb_pause.Visibility = Visibility.Visible;
+                            grid_gameover.Visibility = Visibility.Visible;
+                        }
+                        else
+                        {
+                            grid_gameover.Visibility = Visibility.Hidden;
+                        }
                     }
                     break;
                 case Key.F1:
@@ -381,6 +384,8 @@ namespace SnakeWPF
         public void GameOver(bool send)
         {
             running = false;
+            lb_gameover.Visibility = Visibility.Visible;
+            lb_pause.Visibility = Visibility.Hidden;
             grid_gameover.Visibility = Visibility.Visible;
             grid_options.IsEnabled = true;
             if(multiPC)
