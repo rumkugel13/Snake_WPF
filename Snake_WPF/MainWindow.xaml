@@ -57,6 +57,6 @@
             <Label Content="F1 für Debug Konsole" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="243,248,243,201"/>
             <Label x:Name="lb_pause" Content="Spiel pausiert, &#xA;drücke Leertaste um fortzufahren" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" Width="368" Margin="150,184,149,230" FontSize="24"/>
         </Grid>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="5,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="48" Width="130" TextAlignment="Center"><Run Text="Version 3.0.0"/><LineBreak/><Run Text="© Manuel Stroh"/><LineBreak/><Run Text="2013 - 2016"/></TextBlock>
+        <Label x:Name="label1" Content="Version 3.0.0&#xD;&#xA;© Manuel Stroh&#xD;&#xA;2013 - 2016" HorizontalAlignment="Left" Margin="5,523,0,0" VerticalAlignment="Top" Height="48" Width="130" Padding="0"/>
     </Grid>
 </Window>
