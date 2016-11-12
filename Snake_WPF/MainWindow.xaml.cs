@@ -440,9 +440,8 @@ namespace SnakeWPF
                 AddNewFoodBlock(maxFood);
 
             if (cb_wall.IsChecked == true)
-                Wall();
-
-            Level(cob_level.SelectedIndex);
+                Wall(true);
+            else Wall(false);
             
             grid_gameover.Visibility = Visibility.Hidden;
             grid_options.IsEnabled = false;
@@ -480,94 +479,17 @@ namespace SnakeWPF
             //snake[snake_nr].Coords_Y[0] = y;
         }
 
-        void Wall()
+        void Wall(bool set)
         {
+            Brush tempColor = set ? wallColor : backgroundColor;
             for (int i = 0; i < fieldSizeX; i++)
-                ChangeColor(i, 0, wallColor);
+                ChangeColor(i, 0, tempColor);
             for (int i = 0; i < fieldSizeY; i++)
-                ChangeColor(0, i, wallColor);
+                ChangeColor(0, i, tempColor);
             for (int i = 0; i < fieldSizeX; i++)
-                ChangeColor(i, fieldSizeY - 1, wallColor);
+                ChangeColor(i, fieldSizeY - 1, tempColor);
             for (int i = 0; i < fieldSizeY; i++)
-                ChangeColor(fieldSizeX - 1, i, wallColor);
-        }
-
-        void Level(int level)
-        {
-            switch (level)
-            {
-                case 0:
-                    ////x = 16;
-                    //snake.X = 16;
-                    ////y = 10;
-                    //snake.Y = 10;
-                    ////direction = "left";
-                    //snake.direction = "left";
-                    break;
-                case 1:
-                    ////x = 16;
-                    //snake.X = 16;
-                    ////y = 0;
-                    //snake.Y = 10;
-                    ////direction = "down";
-                    //snake.direction = "down";
-                    for (int i = 9; i < 24; i++)
-                        ChangeColor(i, 10, wallColor);
-                    break;
-                case 2:
-                    ////x = 0;
-                    //snake.X = 0;
-                    ////y = 10;
-                    //snake.Y = 10;
-                    ////direction = "right";
-                    //snake.direction = "right";
-                    for (int i = 5; i < 16; i++)
-                        ChangeColor(16, i, wallColor);
-                    break;
-                case 3:
-                    ////x = 0;
-                    //snake.X = 0;
-                    ////y = 10;
-                    //snake.Y = 10;
-                    ////direction = "right";
-                    //snake.direction = "right";
-                    for (int i = 5; i < 16; i++)
-                        ChangeColor(16, i, wallColor);
-                    for (int i = 9; i < 24; i++)
-                        ChangeColor(i, 10, wallColor);
-                    break;
-                case 4:
-                    ////x = 16;
-                    //snake.X = 16;
-                    ////y = 10;
-                    //snake.Y = 10;
-                    ////direction = "left";
-                    //snake.direction = "left";
-                    ChangeColor(9, 5, wallColor);
-                    ChangeColor(10, 5, wallColor);
-                    ChangeColor(11, 5, wallColor);
-                    ChangeColor(9, 6, wallColor);
-                    ChangeColor(9, 7, wallColor);
-
-                    ChangeColor(9, 15, wallColor);
-                    ChangeColor(10, 15, wallColor);
-                    ChangeColor(11, 15, wallColor);
-                    ChangeColor(9, 14, wallColor);
-                    ChangeColor(9, 13, wallColor);
-
-                    ChangeColor(23, 5, wallColor);
-                    ChangeColor(22, 5, wallColor);
-                    ChangeColor(21, 5, wallColor);
-                    ChangeColor(23, 6, wallColor);
-                    ChangeColor(23, 7, wallColor);
-
-                    ChangeColor(23, 15, wallColor);
-                    ChangeColor(22, 15, wallColor);
-                    ChangeColor(21, 15, wallColor);
-                    ChangeColor(23, 14, wallColor);
-                    ChangeColor(23, 13, wallColor);
-                    break;
-            }
+                ChangeColor(fieldSizeX - 1, i, tempColor);
         }
 
         private void SnakeWindow_Deactivated(object sender, EventArgs e)
@@ -824,6 +746,16 @@ namespace SnakeWPF
         {
             count = 0;
             textBox.Text = "";
+        }
+
+        private void cb_wall_Checked(object sender, RoutedEventArgs e)
+        {
+            Wall(true);
+        }
+
+        private void cb_wall_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Wall(false);
         }
     }
 }
