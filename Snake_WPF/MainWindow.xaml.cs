@@ -544,7 +544,6 @@ namespace SnakeWPF
                 }
 
                 Console.WriteLine("Server started(" + 25566 + "|" + HostName + "|" + IpAdresse + ")\n");
-                lb_status.Content = "Server gestartet";
                 tb_ip.Text = IpAdresse;
             }
             else if (rb_client.IsChecked == true)
@@ -585,7 +584,6 @@ namespace SnakeWPF
             bt_end.IsEnabled = false;
             bt_online.IsEnabled = true;
             multiPC = false;
-            lb_status.Content = "";
             lb_online.Background = Brushes.Gray;
         }
 
@@ -736,7 +734,6 @@ namespace SnakeWPF
             lb_player1.Content = "Spieler 1:";
             bt_online.Content = "Server";
             asServer = true;
-            lb_status.Content = "";
         }
 
         private void rb_client_Checked(object sender, RoutedEventArgs e)
@@ -746,7 +743,6 @@ namespace SnakeWPF
             lb_player1.Content = "Spieler 2:";
             bt_online.Content = "Verbinden";
             asServer = false;
-            lb_status.Content = "";
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -773,8 +769,6 @@ namespace SnakeWPF
  * WIP - redesign:
  * ? change back/foreground colors
  * ? more block colors
- * ? animations
- * ? remove borders (chess pattern?)
  * ? other color for head (opacity with dark background?)
  * ? change playerstats, move properties to snake struct? change properties to set only?
  * ? dynamic window size
