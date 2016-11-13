@@ -36,7 +36,7 @@ namespace SnakeWPF
         const int fieldSizeY = 21;
         const int blockSize = 23;
         const int maxFood = 2;
-        Brush backgroundColor = Brushes.Black;
+        Brush backColor = new SolidColorBrush(Color.FromRgb(20, 20, 20));//Brushes.Black;
         Brush wallColor = Brushes.DarkGray;
         int speed = 200;
         long count = 0;
@@ -71,7 +71,7 @@ namespace SnakeWPF
                     block[i, j].Height = blockSize;
                     block[i, j].Width = blockSize;
                     block[i, j].StrokeThickness = 1;
-                    ChangeColor(i, j, backgroundColor);
+                    ChangeColor(i, j, backColor);
                     block[i, j].Margin = new Thickness((block[i, j].Width * i) + rec_field.Margin.Left, (block[i, j].Height * j) + rec_field.Margin.Top, 0, 0);
                     //rec[i,j].ToolTip = i + "|" + j;
                     grid_window.Children.Add(block[i, j]);
@@ -293,7 +293,7 @@ namespace SnakeWPF
             {
                 return false;
             }
-            else if (block[x, y].Stroke != backgroundColor)
+            else if (block[x, y].Stroke != backColor)
             {
                 //snake[snake_nr].Length += 20;
                 snake[snakeNr].ChangedLength += 2;
@@ -320,7 +320,7 @@ namespace SnakeWPF
                     snake[snakeNr].CoordsX[i] = snake[snakeNr].CoordsX[i + 1];
                     snake[snakeNr].CoordsY[i] = snake[snakeNr].CoordsY[i + 1];
                 }
-                ChangeColor(snake[snakeNr].CoordsX[0], snake[snakeNr].CoordsY[0], backgroundColor);
+                ChangeColor(snake[snakeNr].CoordsX[0], snake[snakeNr].CoordsY[0], backColor);
             }
             if (snake[snakeNr].ChangedLength > 0)
             {
@@ -338,7 +338,7 @@ namespace SnakeWPF
             {
                 int randomX = rand.Next(0, fieldSizeX - 1);
                 int randomY = rand.Next(0, fieldSizeY - 1);
-                if ((block[randomX, randomY].Stroke == backgroundColor))
+                if ((block[randomX, randomY].Stroke == backColor))
                 {
                     int randomColor = rand.Next(brushes.Length);
                     Brush color = brushes[randomColor];
@@ -464,7 +464,7 @@ namespace SnakeWPF
         {
             for (int i = 0; i < fieldSizeX; i++)
                 for (int j = 0; j < fieldSizeY; j++)
-                    ChangeColor(i, j, backgroundColor);
+                    ChangeColor(i, j, backColor);
         }
 
         void NewSnake(int x, int y, Directions direction, int snakeNr)
@@ -485,7 +485,7 @@ namespace SnakeWPF
 
         void Wall(bool set)
         {
-            Brush tempColor = set ? wallColor : backgroundColor;
+            Brush tempColor = set ? wallColor : backColor;
             for (int i = 0; i < fieldSizeX; i++)
                 ChangeColor(i, 0, tempColor);
             for (int i = 0; i < fieldSizeY; i++)

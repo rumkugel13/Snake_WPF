@@ -44,7 +44,7 @@
             <RadioButton x:Name="rb_multi_local" Content="Mehrspieler/Lokal" HorizontalAlignment="Left" Margin="5,52,0,0" VerticalAlignment="Top" GroupName="rb_mode" Checked="rb_multi_local_Checked"/>
             <RadioButton x:Name="rb_multi_online" Content="Mehrspieler/Online" HorizontalAlignment="Left" Margin="5,72,0,0" VerticalAlignment="Top" GroupName="rb_mode" Checked="rb_multi_online_Checked"/>
         </Grid>
-        <Grid x:Name="grid_gameover" HorizontalAlignment="Left" Width="667" Margin="140,5,5,0" Height="483" VerticalAlignment="Top" Panel.ZIndex="1">
+        <Grid x:Name="grid_gameover" HorizontalAlignment="Left" Width="667" Margin="140,5,5,0" Height="483" VerticalAlignment="Top" Panel.ZIndex="1" Visibility="Hidden">
             <Grid.Background>
                 <SolidColorBrush Opacity="0.75" Color="#FFE5E5E5"/>
             </Grid.Background>
