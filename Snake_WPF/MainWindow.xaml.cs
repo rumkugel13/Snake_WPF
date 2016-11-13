@@ -32,9 +32,9 @@ namespace SnakeWPF
         bool running = false;
         bool pause = false;
         Rectangle[,] block;
-        const int fieldSizeX = 29;
-        const int fieldSizeY = 21;
-        const int blockSize = 23;
+        const int fieldSizeX = 25;
+        const int fieldSizeY = 23;
+        const int blockSize = 21;
         const int maxFood = 2;
         Brush backColor = new SolidColorBrush(Color.FromRgb(20, 20, 20));//Brushes.Black;
         Brush wallColor = Brushes.DarkGray;
