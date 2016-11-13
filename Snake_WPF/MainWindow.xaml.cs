@@ -17,7 +17,6 @@ namespace SnakeWPF
         public MainWindow()
         {
             InitializeComponent();
-            lb_connected.Visibility = Visibility.Hidden;
             lb_count.Visibility = Visibility.Hidden;
             lb_pause.Visibility = Visibility.Hidden;
 
@@ -565,6 +564,7 @@ namespace SnakeWPF
             bt_online.IsEnabled = false;
             bt_end.IsEnabled = true;
             multiPC = true;
+            lb_online.Background = Brushes.Red;
         }
 
         private void bt_end_Click(object sender, RoutedEventArgs e)
@@ -586,6 +586,7 @@ namespace SnakeWPF
             bt_online.IsEnabled = true;
             multiPC = false;
             lb_status.Content = "";
+            lb_online.Background = Brushes.Gray;
         }
 
         void DebugPrint(string msg)
@@ -643,20 +644,21 @@ namespace SnakeWPF
         {
             if (isConnected)
             {
-                lb_connected.Visibility = Visibility.Visible;
                 if (asServer)
                     bt_start.IsEnabled = true;
                 rb_multi_local.IsEnabled = false;
                 rb_single.IsEnabled = false;
+                lb_online.Background = Brushes.Green;
             }
             else
             {
-                lb_connected.Visibility = Visibility.Hidden;
                 GameOver(false);
                 bt_start.IsEnabled = false;
                 //multipc = false;
                 rb_multi_local.IsEnabled = true;
                 rb_single.IsEnabled = true;
+                if(lb_online.Background != Brushes.Gray)
+                    lb_online.Background = Brushes.Red;
             }
         }
 
