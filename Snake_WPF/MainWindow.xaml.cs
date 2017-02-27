@@ -584,7 +584,7 @@ namespace SnakeWPF
             bt_end.IsEnabled = false;
             bt_online.IsEnabled = true;
             multiPC = false;
-            lb_online.Background = Brushes.Gray;
+            lb_online.Background = Brushes.DarkGray;
         }
 
         void DebugPrint(string msg)
@@ -655,7 +655,7 @@ namespace SnakeWPF
                 //multipc = false;
                 rb_multi_local.IsEnabled = true;
                 rb_single.IsEnabled = true;
-                if(lb_online.Background != Brushes.Gray)
+                if(lb_online.Background != Brushes.DarkGray)
                     lb_online.Background = Brushes.Red;
             }
         }

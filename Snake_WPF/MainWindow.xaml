@@ -10,7 +10,7 @@
         <Label x:Name="lb_count" Content="3" HorizontalAlignment="Center" Margin="0,224,0,0" VerticalAlignment="Top" FontSize="24" Foreground="White" Panel.ZIndex="1"/>
         <Button x:Name="bt_start" Content="Start" Margin="670,327,0,0" VerticalAlignment="Top" Click="bt_start_Click" Height="78" FontSize="24" HorizontalAlignment="Left" Width="130"/>
         <Grid x:Name="grid_control" Background="LightGray" Margin="5,150,0,0" HorizontalAlignment="Left" Width="130" Height="136" VerticalAlignment="Top">
-            <Label Content="Steuerung" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Gray"/>
+            <Label Content="Steuerung" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
             <Label x:Name="lb_player1" Content="Spieler 1:" HorizontalAlignment="Left" Margin="0,27,0,0" VerticalAlignment="Top"/>
             <Label x:Name="lb_player2" Content="Spieler 2:" HorizontalAlignment="Left" Margin="0,53,0,0" VerticalAlignment="Top"/>
             <Label Content="Start/Pause:" HorizontalAlignment="Left" Margin="0,79,0,0" VerticalAlignment="Top"/>
@@ -25,12 +25,12 @@
             <RadioButton x:Name="rb_server" Content="Server" HorizontalAlignment="Left" Margin="5,31,0,0" VerticalAlignment="Top" GroupName="rb_online" IsChecked="True" Checked="rb_server_Checked"/>
             <RadioButton x:Name="rb_client" Content="Client" HorizontalAlignment="Left" Margin="76,31,0,0" VerticalAlignment="Top" GroupName="rb_online" Checked="rb_client_Checked"/>
             <Button x:Name="bt_end" Content="Beenden" HorizontalAlignment="Left" Margin="5,76,0,0" VerticalAlignment="Top" Width="120" Click="bt_end_Click" IsEnabled="False"/>
-            <Label x:Name="lb_online" Content="Online" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Gray"/>
+            <Label x:Name="lb_online" Content="Online" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
             <TextBox x:Name="tb_ip" Text="rumkuhgel.ddns.net" HorizontalAlignment="Left" Height="22" Margin="5,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <Label Content="IP Adresse:" HorizontalAlignment="Left" Margin="0,96,0,0" VerticalAlignment="Top"/>
         </Grid>
         <Grid x:Name="grid_options" Background="LightGray" Margin="5,5,0,0" HorizontalAlignment="Left" Width="130" Height="140" VerticalAlignment="Top">
-            <Label Content="Optionen" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="Gray"/>
+            <Label Content="Optionen" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray"/>
             <Label Content="Tempo:" Margin="0,107,0,0" HorizontalAlignment="Left" Height="26" VerticalAlignment="Top"/>
             <CheckBox x:Name="cb_wall" Content="Mauer" Margin="6,92,4,0" VerticalAlignment="Top" Checked="cb_wall_Checked" Unchecked="cb_wall_Unchecked"/>
             <ComboBox x:Name="cb_speed" Margin="0,109,4,0" VerticalAlignment="Top" SelectionChanged="cb_speed_SelectionChanged" SelectedIndex="0" HorizontalAlignment="Right">
