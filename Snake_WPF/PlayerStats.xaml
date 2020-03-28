@@ -6,17 +6,17 @@
              xmlns:local="clr-namespace:SnakeWPF" x:Class="SnakeWPF.PlayerStats" 
              mc:Ignorable="d" Height="156" Width="130">
     <Grid Background="LightGray">
-        <Label x:Name="lb_header" Content="Spieler 1" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray" MouseLeftButtonDown="lb_header_MouseLeftButtonDown" HorizontalAlignment="Left" Width="130"/>
-        <Label Content="Punkte:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0" Width="50"/>
-        <Label Content="Länge:" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top" Width="50"/>
-        <Label Content="Richtung:" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top"/>
-        <Label Content="Koordinaten:" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" Width="82"/>
+        <Label x:Name="lb_header" Content="Player 1" VerticalAlignment="Top" HorizontalContentAlignment="Center" FontWeight="Bold" Background="DarkGray" MouseLeftButtonDown="lb_header_MouseLeftButtonDown" HorizontalAlignment="Left" Width="130"/>
+        <Label Content="Points:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0" Width="50"/>
+        <Label Content="Length:" HorizontalAlignment="Left" Margin="0,78,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="Direction:" HorizontalAlignment="Left" Margin="0,104,0,0" VerticalAlignment="Top"/>
+        <Label Content="Coordinates:" HorizontalAlignment="Left" Margin="0,130,0,0" VerticalAlignment="Top" Width="82"/>
         <Label x:Name="lb_points" Content="0" VerticalAlignment="Top" FlowDirection="RightToLeft" Margin="0,26,0,0" HorizontalAlignment="Right" Width="80"/>
         <Label x:Name="lb_length" Content="5" Margin="0,78,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right" Width="80"/>
-        <Label x:Name="lb_direction" Content="Links" Margin="0,104,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right" Width="70"/>
+        <Label x:Name="lb_direction" Content="Left" Margin="0,104,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right" Width="70"/>
         <Label x:Name="lb_x" Content="15" Margin="0,130,24,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
         <Label x:Name="lb_y" Content="10" Margin="0,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="24"/>
-        <Label Content="Futter:" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="50"/>
+        <Label Content="Apples:" HorizontalAlignment="Left" Margin="0,52,0,0" VerticalAlignment="Top" Width="50"/>
         <Label x:Name="lb_food" Content="0" Margin="0,52,0,0" VerticalAlignment="Top" FlowDirection="RightToLeft" HorizontalAlignment="Right" Width="80"/>
         <Grid x:Name="grid_color" Visibility="Hidden">
             <Grid.Background>

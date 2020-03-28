@@ -74,22 +74,16 @@ namespace SnakeWPF
             {
                 switch(lb_direction.Content.ToString())
                 {
-                    case "Links": return Directions.Left;
-                    case "Rechts": return Directions.Right;
-                    case "Oben": return Directions.Up;
-                    case "Unten": return Directions.Down;
+                    case "Left": return Directions.Left;
+                    case "Right": return Directions.Right;
+                    case "Up": return Directions.Up;
+                    case "Down": return Directions.Down;
                     default: Direction = Directions.Left; return Directions.Left;
                 }
             }
             set
             {
-                switch(value)
-                {
-                    case Directions.Left: lb_direction.Content = "Links"; break;
-                    case Directions.Right: lb_direction.Content = "Rechts"; break;
-                    case Directions.Up: lb_direction.Content = "Oben"; break;
-                    case Directions.Down: lb_direction.Content = "Unten"; break;
-                }
+                lb_direction.Content = value;
             }
         }
 

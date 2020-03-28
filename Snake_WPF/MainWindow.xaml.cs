@@ -668,8 +668,8 @@ namespace SnakeWPF
         private void rb_single_Checked(object sender, RoutedEventArgs e)
         {
             players = 1;
-            lb_player1.Content = "Spieler 1:";
-            lb_player2.Content = "oder:";
+            lb_player1.Content = "Player 1:";
+            lb_player2.Content = "or:";
             grid_online.IsEnabled = false;
             ps_player_1.IsEnabled = true;
             ps_player_2.IsEnabled = false;
@@ -684,8 +684,8 @@ namespace SnakeWPF
         private void rb_multi_local_Checked(object sender, RoutedEventArgs e)
         {
             players = 2;
-            lb_player1.Content = "Spieler 1:";
-            lb_player2.Content = "Spieler 2:";
+            lb_player1.Content = "Player 1:";
+            lb_player2.Content = "Player 2:";
             grid_online.IsEnabled = false;
             ps_player_1.IsEnabled = true;
             ps_player_2.IsEnabled = true;
@@ -700,8 +700,8 @@ namespace SnakeWPF
         private void rb_multi_online_Checked(object sender, RoutedEventArgs e)
         {
             players = 2;
-            lb_player1.Content = "Spieler 1:";
-            lb_player2.Content = "oder:";
+            lb_player1.Content = "Player 1:";
+            lb_player2.Content = "or:";
             grid_online.IsEnabled = true;
             ps_player_1.IsEnabled = true;
             ps_player_2.IsEnabled = false;
@@ -731,7 +731,7 @@ namespace SnakeWPF
         {
             ps_player_1.IsEnabled = true;
             ps_player_2.IsEnabled = false;
-            lb_player1.Content = "Spieler 1:";
+            lb_player1.Content = "Player 1:";
             bt_online.Content = "Server";
             asServer = true;
         }
@@ -740,8 +740,8 @@ namespace SnakeWPF
         {
             ps_player_1.IsEnabled = false;
             ps_player_2.IsEnabled = true;
-            lb_player1.Content = "Spieler 2:";
-            bt_online.Content = "Verbinden";
+            lb_player1.Content = "Player 2:";
+            bt_online.Content = "Connect";
             asServer = false;
         }
 
@@ -797,6 +797,8 @@ namespace SnakeWPF
 */
 /* Changelog:
  * 
+ * 2.1.0 (28.03.2020):
+ * - Changed localization to english
  * 2.0.4 (9.11.2016):
  * - Server side fixes
  * - Small ui changes in online
