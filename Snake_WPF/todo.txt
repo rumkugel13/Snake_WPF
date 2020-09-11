@@ -1,0 +1,31 @@
+﻿/*TODO:
+ * 
+ * WIP - redesign:
+ * ? change back/foreground colors
+ * ? more block colors
+ * ? other color for head (opacity with dark background?)
+ * ? change playerstats, move properties to snake struct? change properties to set only?
+ * ? dynamic window size
+ * ? dynamic field/size (field: change rect. size, fieldsize: change fieldsize)
+ * ? window for levels (choose level, show preview
+ * 
+ * ideas:
+ * powerups
+ * proper online mp (lobby etc)
+ * mp chat
+ * pc enemy - automatic search for food[0], maybe nearest, 
+ *      difficulty (easy: check next block/ direction, medium: check more blocks (better AI) etc)
+ * button remapper + savefile
+ * fieldsize chooser
+ * up to 4 players, different starting points
+ * level for multiplayer
+ * save playernames, reset them
+ * search lan for servers (number/players, maybe server name)
+ * custom levels (+ starting point)
+ * 
+ * Legend:
+ * ~: WIP
+ * +: later
+ * ?: maybe/idea
+ * -: obsolete
+*/
