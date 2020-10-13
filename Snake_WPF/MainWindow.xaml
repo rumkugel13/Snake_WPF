@@ -54,6 +54,6 @@
             <Label Content="F1 for Debug Console" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="0,254,0,195"/>
             <Label x:Name="lb_pause" Content="Game paused, &#xA;press Space to continue" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,184,0,230" FontSize="24"/>
         </Grid>
-        <Label x:Name="label1" Content="Version 3.0.0&#xD;&#xA;© 2013 rumkugel13" HorizontalAlignment="Left" Margin="670,410,5,0" VerticalAlignment="Top" Height="48" Width="130" Padding="0"/>
+        <Label x:Name="label1" Content="Version 3.1.0&#xA;© 2013 rumkugel13" HorizontalAlignment="Left" Margin="670,410,5,0" VerticalAlignment="Top" Height="48" Width="130" Padding="0"/>
     </Grid>
 </Window>
