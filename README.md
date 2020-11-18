@@ -5,6 +5,17 @@
 ## About
 A game where you control a hungry snake trying to get food, made in WPF.
 
+## Features
+- Singleplayer mode
+- Local and Online Multiplayer
+- Wall or wrap-around edge
+- 4 speed modes
+- Per player color picker
+
+## Issues
+- Missing levels
+- Inaccurate timer
+
 # Build Instructions
 
 ## Requirements
