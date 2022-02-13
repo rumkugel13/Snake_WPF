@@ -3,7 +3,7 @@
 ![Screenshot](https://rumkugel13.github.io/content/images/snake_wpf_screenshot.png)
 
 ## About
-A game where you control a hungry snake trying to get food, made in WPF.
+A game where you control a hungry [snake](https://en.wikipedia.org/wiki/Snake_(video_game_genre)) trying to get food, made in WPF.
 
 ## Features
 - Singleplayer mode
